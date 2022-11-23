@@ -1,5 +1,4 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:hive_generator/hive_generator.dart';
 
 part 'players.g.dart';
 
