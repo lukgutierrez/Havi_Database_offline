@@ -9,6 +9,11 @@ class HiveData {
     return box.add(people);
   }
 
+  Future<int> deletePeople(People people) async {
+    final Box<People> box = await Hive.openBox<People>('people');
+    return box.clear();
+  }
+
   Future<List<People>> get contact async {
     final Box<People> box = await Hive.openBox<People>('people');
     return box.values.toList();
