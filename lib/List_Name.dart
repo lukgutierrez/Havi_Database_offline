@@ -12,7 +12,6 @@ class ListName extends StatefulWidget {
 
 class _ListNameState extends State<ListName> {
   final HiveData hiveData = const HiveData();
-
   List<People> people = [];
 
   @override
@@ -23,6 +22,7 @@ class _ListNameState extends State<ListName> {
 
   Future<void> getData() async {
     people = await hiveData.contact;
+
     setState(() {});
   }
 
@@ -56,17 +56,14 @@ class _ListNameState extends State<ListName> {
                   child: Center(child: Text("DELETE")),
                 ),
                 key: UniqueKey(),
+                onDismissed: (direction) async {
+                  await hiveData.deletePeopleIndex(index);
+
+                  await getData();
+                },
                 child: ListTile(
                   title: Text(people[index].name),
                   subtitle: Text(people[index].name),
-                ))
-
-            //  {
-            //   return ListTile(
-            //     title: Text(people[index].name),
-            //     subtitle: Text(people[index].name),
-            //   );
-            // }),
-            ));
+                ))));
   }
 }

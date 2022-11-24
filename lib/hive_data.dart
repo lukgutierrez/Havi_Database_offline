@@ -14,6 +14,11 @@ class HiveData {
     return box.clear();
   }
 
+  Future<void> deletePeopleIndex(int index) async {
+    final Box<People> box = await Hive.openBox<People>('people');
+    return box.deleteAt(index);
+  }
+
   Future<List<People>> get contact async {
     final Box<People> box = await Hive.openBox<People>('people');
     return box.values.toList();
