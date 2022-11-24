@@ -51,19 +51,20 @@ class _ListNameState extends State<ListName> {
         body: ListView.builder(
             itemCount: people.length,
             itemBuilder: (context, index) => Dismissible(
-                background: Container(
-                  color: Colors.red,
-                  child: Center(child: Text("DELETE")),
-                ),
-                key: UniqueKey(),
-                onDismissed: (direction) async {
-                  await hiveData.deletePeopleIndex(index);
+                  background: Container(
+                    color: Colors.red,
+                    child: Center(child: Text("DELETE")),
+                  ),
+                  key: UniqueKey(),
+                  onDismissed: (direction) async {
+                    await hiveData.deletePeopleIndex(index);
 
-                  await getData();
-                },
-                child: ListTile(
-                  title: Text(people[index].name),
-                  subtitle: Text(people[index].name),
-                ))));
+                    await getData();
+                  },
+                  child: ListTile(
+                    title: Text(people[index].name),
+                    subtitle: Text(people[index].name),
+                  ),
+                )));
   }
 }

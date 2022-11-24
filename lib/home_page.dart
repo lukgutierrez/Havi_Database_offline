@@ -11,7 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final TextEditingController controller = TextEditingController();
+  final TextEditingController controller = TextEditingController(text: "");
   final HiveData hiveData = const HiveData();
   List<People> people = [];
 

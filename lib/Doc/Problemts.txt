@@ -1,0 +1,8 @@
+#1_ No Create Adapters
+=> Solution
+-Save Page Create
+-dev _dependencias (correct position)
+
+#2_ No init aplication
+=>Solution
+-No import package inutils for example (import 'package:hive_flutter/hive_flutter.dart')
